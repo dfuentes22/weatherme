@@ -7,7 +7,7 @@ var wind;
 var direction;
 
 function updateByZip(zip){
-	var url = "http://api.openweathermap.org/data/2.5/weather?" + "zip" + zip + "&APPID=" + APPID;
+	var url = "http://api.openweathermap.org/data/2.5/weather?" + "zip=" + zip + "&APPID=" + APPID;
 
 	sendRequest(url);
 }
@@ -24,7 +24,7 @@ function sendRequest(url){
 			weather.wind = data.wind.speed;
 			weather.direction = data.wind.deg;
 			weather.loc = data.name;
-			weather.temp = data.name.temp;
+			weather.temp = data.main.temp;
 			update(weather);
 		}
 	};
@@ -57,5 +57,5 @@ window.onload = function() {
 	weather.temp = "45";
 	weather.icon = 200;*/
 	
-	updateByZip(87110);
+	updateByZip(17109);
 }
